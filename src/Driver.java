@@ -7,9 +7,10 @@ import java.util.Scanner;
  * @version 2.3
  *
  */
+
 public class Driver{
 
-    private Scanner input = new Scanner(System.in);
+    private final Scanner input = new Scanner(System.in);
     private Store store;
 
     public static void main(String[] args) {
@@ -30,9 +31,8 @@ public class Driver{
                   3) Display average product unit cost
                   4) Display cheapest product
                   0) Exit
-               ==>> """);
-        int option = input.nextInt();
-        return option;
+               ==>>\s""");
+        return input.nextInt();
     }
 
     private void runMenu(){
@@ -91,9 +91,7 @@ public class Driver{
         //converted to either a True or a False (i.e. a boolean value).
         System.out.print("Is this product in your current line (y/n): ");
         char currentProduct = input.next().charAt(0);
-        boolean inCurrentProductLine = false;
-        if ((currentProduct == 'y') || (currentProduct == 'Y'))
-            inCurrentProductLine = true;
+        boolean inCurrentProductLine = (currentProduct == 'y') || (currentProduct == 'Y');
 
         boolean isAdded = store.add(new Product(productName, productCode, unitCost, inCurrentProductLine));
         if (isAdded){
@@ -136,8 +134,9 @@ public class Driver{
         else{
             System.out.println("There are no products in the store.");
         }
-    }
 
+    }
+//helloworld
     //ask the user to enter a price and print out all products costing that price or more.
 
 
